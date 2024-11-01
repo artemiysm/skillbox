@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления студентами</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Управление студентами</h1>
+
+        <!-- Форма добавления студента -->
+        <form id="add-student-form" class="mb-4">
+            <h3>Добавить студента</h3>
+            <div id="form-messages" class="text-danger"></div>
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" id="firstName" class="form-control" placeholder="Имя" required>
+                </div>
+                <div class="col">
+                    <input type="text" id="lastName" class="form-control" placeholder="Фамилия" required>
+                </div>
+                <div class="col">
+                    <input type="text" id="middleName" class="form-control" placeholder="Отчество" required>
+                </div>
+                <div class="col">
+                    <input type="date" id="birthDate" class="form-control" required>
+                </div>
+                <div class="col">
+                    <input type="number" id="startYear" class="form-control" placeholder="Год начала обучения" required>
+                </div>
+                <div class="col">
+                    <input type="text" id="faculty" class="form-control" placeholder="Факультет" required>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Добавить студента</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Фильтры -->
+        <div class="mb-4">
+            <h3>Фильтры</h3>
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" id="filterName" class="form-control" placeholder="Ф.И.О.">
+                </div>
+                <div class="col">
+                    <input type="text" id="filterFaculty" class="form-control" placeholder="Факультет">
+                </div>
+                <div class="col">
+                    <input type="number" id="filterStartYear" class="form-control" placeholder="Год начала обучения">
+                </div>
+                <div class="col">
+                    <input type="number" id="filterEndYear" class="form-control" placeholder="Год окончания обучения">
+                </div>
+            </div>
+        </div>
+
+        <!-- Таблица студентов -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th id="sort-name">Ф.И.О.</th>
+                    <th id="sort-faculty">Факультет</th>
+                    <th id="sort-birthdate">Дата рождения и возраст</th>
+                    <th id="sort-year">Годы обучения</th>
+                </tr>
+            </thead>
+            <tbody id="students-table-body">
+                <!-- Студенты добавляются сюда -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
