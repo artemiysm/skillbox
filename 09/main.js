@@ -1,4 +1,4 @@
-// Функция для создании массива парных чисел
+//парные числа
 const generateCardNumbers = (pairsCount = 8) => {
     const numbers = [];
     for (let i = 1; i <= pairsCount; i++) {
@@ -16,19 +16,18 @@ const shuffleArray = (array) => {
     return array;
 };
 
-// Переменные для хранения статуса игры
+// статуса игры
 let firstCard = null;
 let secondCard = null;
 let isProcessing = false;
 
-// Функция для создания дом элементов 
 const createCardElement = (number) => {
     const card = document.createElement('div');
     card.classList.add('card');
     card.dataset.number = number;
     card.textContent = '?';
     
-    // Проверка клика на карточку
+    // чекер клика на карточку
     card.addEventListener('click', () => {
         if (isProcessing || card.classList.contains('open') || card.classList.contains('matched')) {
             return;
@@ -47,7 +46,7 @@ const createCardElement = (number) => {
     return card;
 };
 
-// Проверка на совпадение карточек
+// совпадение карточек
 const checkForMatch = () => {
     isProcessing = true;
     const isMatch = firstCard.dataset.number === secondCard.dataset.number;
@@ -71,7 +70,7 @@ const checkForMatch = () => {
     }, 800);
 };
 
-// Проверка завершения игры
+// конец игры
 const checkIfGameCompleted = () => {
     const matchedCards = document.querySelectorAll('.matched');
     if (matchedCards.length === 16) {
@@ -79,7 +78,7 @@ const checkIfGameCompleted = () => {
     }
 };
 
-// Функция для инициализации игры
+// начало игры
 const initializeGame = () => {
     const board = document.querySelector('.game-board');
     board.innerHTML = '';
@@ -91,8 +90,8 @@ const initializeGame = () => {
     });
 };
 
-// Перезапуск игры по нажатию кнопки
+// рестарт
 document.getElementById('restart').addEventListener('click', initializeGame);
 
-// Инициализация игры при загрузке
+
 initializeGame();
