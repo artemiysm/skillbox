@@ -14,5 +14,5 @@ function createStudentCard(name, age) {
     document.body.appendChild(card);
 }
 
-// Пример вызова функции
+
 createStudentCard('Игорь', 17);
