@@ -14,6 +14,6 @@ function createStudentCard(student) {
     document.body.appendChild(card);
 }
 
-// Пример вызова функции
+
 const studentObj = { name: 'Игорь', age: 17 };
 createStudentCard(studentObj);
