@@ -20,7 +20,6 @@ function createStudentsList(listArr) {
     document.body.appendChild(list);
 }
 
-// Пример массива студентов
 let allStudents = [
     { name: 'Валя', age: 11 },
     { name: 'Таня', age: 24 },
@@ -29,5 +28,4 @@ let allStudents = [
     { name: 'Антон', age: 7 }
 ];
 
-// Вызов функции
 createStudentsList(allStudents);
