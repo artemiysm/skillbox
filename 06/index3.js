@@ -10,4 +10,3 @@ let objects = [
 
 let result = filter(objects, 'name', 'Иван');
 console.log(result); 
-// [{ name: 'Иван', surname: 'Иванов' }]
