@@ -1,4 +1,4 @@
-// Этап 2. Массив объектов студентов с 5 примерами
+// Этап 1.  5 примеров студентов
 const studentsList = [
     {
         firstName: "Иван",
@@ -42,7 +42,7 @@ const studentsList = [
     }
 ];
 
-// Этап 3. Функция для вывода одного студента в таблицу
+// Этап 2. вывод одного студента в таблицу
 function getStudentItem(studentObj) {
     const row = document.createElement("tr");
 
@@ -64,7 +64,7 @@ function getStudentItem(studentObj) {
     return row;
 }
 
-// Вспомогательная функция для вычисления возраста
+// вычисление возраста
 function calculateAge(birthDate) {
     const today = new Date();
     let age = today.getFullYear() - birthDate.getFullYear();
@@ -74,14 +74,14 @@ function calculateAge(birthDate) {
     return age;
 }
 
-// Этап 4. Функция для отрисовки всех студентов
+// Этап 3. отрисовка всех студентов
 function renderStudentsTable(studentsArray) {
     const tableBody = document.getElementById("students-table-body");
     tableBody.innerHTML = ""; // Очищаем таблицу перед добавлением новых строк
     studentsArray.forEach(student => tableBody.appendChild(getStudentItem(student)));
 }
 
-// Этап 5. Добавление студента через форму с проверкой
+// Этап 4. Добавление студента через форму с проверкой
 document.getElementById("add-student-form").addEventListener("submit", function(event) {
     event.preventDefault();
     const formMessages = document.getElementById("form-messages");
@@ -113,7 +113,7 @@ document.getElementById("add-student-form").addEventListener("submit", function(
     renderStudentsTable(studentsList);
 });
 
-// Этап 5. Функция сортировки массива студентов
+// Этап 5. сортировка студентов
 function sortStudents(property) {
     studentsList.sort((a, b) => {
         if (property === "birthDate" || property === "startYear") {
@@ -125,13 +125,13 @@ function sortStudents(property) {
     renderStudentsTable(studentsList);
 }
 
-// Добавляем сортировку на заголовки таблицы
+// сортировка на заголовки таблицы
 document.getElementById("sort-name").addEventListener("click", () => sortStudents("lastName"));
 document.getElementById("sort-faculty").addEventListener("click", () => sortStudents("faculty"));
 document.getElementById("sort-birthdate").addEventListener("click", () => sortStudents("birthDate"));
 document.getElementById("sort-year").addEventListener("click", () => sortStudents("startYear"));
 
-// Этап 6. Функция фильтрации массива студентов
+// Этап 6. фильтрация студентов
 function filterStudents() {
     let filteredStudents = studentsList;
 
@@ -158,11 +158,11 @@ function filterStudents() {
     renderStudentsTable(filteredStudents);
 }
 
-// Добавляем события для фильтрации при вводе значений
+// событие для фильтрации при вводе значений
 document.getElementById("filterName").addEventListener("input", filterStudents);
 document.getElementById("filterFaculty").addEventListener("input", filterStudents);
 document.getElementById("filterStartYear").addEventListener("input", filterStudents);
 document.getElementById("filterEndYear").addEventListener("input", filterStudents);
 
-// Первоначальная отрисовка списка студентов
+
 renderStudentsTable(studentsList);
